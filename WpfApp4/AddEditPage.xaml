@@ -22,9 +22,9 @@
         <TextBlock Text="Название"/>
         <TextBlock Text="Количество звезд" Grid.Row="1"/>
         <TextBlock Text="Страна" Grid.Row="2"/>
-        <TextBox Grid.Column="1" Height="30" MaxLength="100"/>
-        <TextBox Grid.Column="1" Grid.Row="1" Width="175" Height="30" HorizontalAlignment="left"/>
-        <ComboBox x:Name="ComboCountries" DisplayMemberPath="name" Grid.Row="2" Grid.Column="1" Height="30"/>
+        <TextBox Text="{Binding name}" Grid.Column="1" Height="30" MaxLength="100"/>
+        <TextBox Text="{Binding countOfStars}" Grid.Column="1" Grid.Row="1" Width="175" Height="30" HorizontalAlignment="left"/>
+        <ComboBox SelectedItem="{Binding Country}" x:Name="ComboCountries" DisplayMemberPath="name" Grid.Row="2" Grid.Column="1" Height="30"/>
 
         <Button Content="Сохранить" Grid.ColumnSpan="2" Grid.Row="3" Name="BtnSave" Click="BtnSave_Click"/>
     </Grid>
