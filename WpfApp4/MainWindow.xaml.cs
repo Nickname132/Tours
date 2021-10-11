@@ -23,7 +23,7 @@ namespace WpfApp4
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Navigate(new HotelsPage());
+            MainFrame.Navigate(new ToursPage());
             Manage.MainFrame = MainFrame;
         }
 

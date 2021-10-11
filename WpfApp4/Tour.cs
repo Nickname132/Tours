@@ -28,6 +28,14 @@ namespace WpfApp4
         public byte[] imagePriview { get; set; }
         public decimal price { get; set; }
         public bool isActual { get; set; }
+
+        public string ActualText 
+        {
+            get
+            {
+                return (isActual) ? "Актуален" : "Завершен"; 
+            }
+        }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Hotel> Hotel { get; set; }
