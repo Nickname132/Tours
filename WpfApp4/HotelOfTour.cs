@@ -12,12 +12,13 @@ namespace WpfApp4
     using System;
     using System.Collections.Generic;
     
-    public partial class HotelImage
+    public partial class HotelOfTour
     {
-        public int id { get; set; }
-        public int hotelid { get; set; }
-        public byte[] imageSource { get; set; }
+        public int Hotelid { get; set; }
+        public int Tourid { get; set; }
     
-        public virtual Hotel Hotel { get; set; }
+        public virtual Hotels Hotels { get; set; }
+        public virtual Tour Tour { get; set; }
+        public virtual Tours Tours { get; set; }
     }
 }

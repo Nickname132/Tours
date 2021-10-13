@@ -17,13 +17,13 @@ namespace WpfApp4
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Country()
         {
-            this.Hotel = new HashSet<Hotel>();
+            this.Hotels = new HashSet<Hotels>();
         }
     
         public string code { get; set; }
-        public string name { get; set; }
+        public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Hotel> Hotel { get; set; }
+        public virtual ICollection<Hotels> Hotels { get; set; }
     }
 }

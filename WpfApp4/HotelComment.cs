@@ -17,9 +17,9 @@ namespace WpfApp4
         public int id { get; set; }
         public int Hotelid { get; set; }
         public string Text { get; set; }
-        public string Auther { get; set; }
+        public string Author { get; set; }
         public System.DateTime CreationDate { get; set; }
     
-        public virtual Hotel Hotel { get; set; }
+        public virtual Hotels Hotels { get; set; }
     }
 }

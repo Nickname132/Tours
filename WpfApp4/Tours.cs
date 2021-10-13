@@ -12,27 +12,26 @@ namespace WpfApp4
     using System;
     using System.Collections.Generic;
     
-    public partial class Hotel
+    public partial class Tours
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Hotel()
+        public Tours()
         {
-            this.HotelComment = new HashSet<HotelComment>();
-            this.HotelImage = new HashSet<HotelImage>();
-            this.Tour = new HashSet<Tour>();
+            this.HotelOfTour = new HashSet<HotelOfTour>();
+            this.Type = new HashSet<Type>();
         }
     
         public int id { get; set; }
         public string name { get; set; }
-        public int countOfStars { get; set; }
-        public string CountryCode { get; set; }
+        public decimal price { get; set; }
+        public bool IsActual { get; set; }
+        public byte[] imagePreview { get; set; }
+        public Nullable<int> ticketCount { get; set; }
+        public string description { get; set; }
     
-        public virtual Country Country { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HotelComment> HotelComment { get; set; }
+        public virtual ICollection<HotelOfTour> HotelOfTour { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HotelImage> HotelImage { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tour> Tour { get; set; }
+        public virtual ICollection<Type> Type { get; set; }
     }
 }

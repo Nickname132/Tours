@@ -12,10 +12,10 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
-        <Image Source="Resources/1.jpg" HorizontalAlignment="Left"></Image>
+        <Image Source="Resources/travel.png" HorizontalAlignment="Left" Width="204" RenderTransformOrigin="0.611,0.493" Margin="10,0,0,0"></Image>
         <TextBlock Text="Header" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Grid Background="#bae3e8" Panel.ZIndex="-2"></Grid>
-        <Grid Grid.Row="2" Background="#445c93"></Grid>
+        <Grid Background="#00FF7F" Panel.ZIndex="-2"></Grid>
+        <Grid Grid.Row="2" Background="blue"></Grid>
         <Frame NavigationUIVisibility="Hidden" ContentRendered="MainFrame_ContentRendered" Grid.Row="1" Name="MainFrame"/>
         <Button Content="Back" Name="BtnBack" HorizontalAlignment="Right"
  Margin="5" Click="BtnBack_Click"/>

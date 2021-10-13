@@ -20,9 +20,9 @@ namespace WpfApp4
     /// </summary>
     public partial class AddEditPage : Page
     {
-        private Hotel _currentHotel = new Hotel();
+        private Hotels _currentHotel = new Hotels();
 
-        public AddEditPage(Hotel selectedHotel)
+        public AddEditPage(Hotels selectedHotel)
         {
             InitializeComponent();
 
@@ -30,16 +30,16 @@ namespace WpfApp4
                 _currentHotel = selectedHotel;
 
             DataContext = _currentHotel;
-            ComboCountries.ItemsSource = ToursBaseEntities.GetContext().Country.ToList();
+            ComboCountries.ItemsSource = Tours1Entities2.GetContext().Country.ToList();
         }
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
             StringBuilder errors = new StringBuilder();
 
-            if (string.IsNullOrWhiteSpace(_currentHotel.name))
+            if (string.IsNullOrWhiteSpace(_currentHotel.Name))
                 errors.AppendLine("Укажите название отеля");
-            if (_currentHotel.countOfStars < 1 || _currentHotel.countOfStars > 5)
+            if (_currentHotel.CountOfStars < 1 || _currentHotel.CountOfStars > 5)
                 errors.AppendLine("Кол-во звезд - число от 1 до 5");
             if (_currentHotel.Country == null)
                 errors.AppendLine("Выберите страну");
@@ -51,11 +51,11 @@ namespace WpfApp4
             }
 
             if (_currentHotel.id == 0)
-                ToursBaseEntities.GetContext().Hotel.Add(_currentHotel);
+                Tours1Entities2.GetContext().Hotels.Add(_currentHotel);
 
             try
             {
-                ToursBaseEntities.GetContext().SaveChanges();
+                Tours1Entities2.GetContext().SaveChanges();
                 MessageBox.Show("Информация сохранена");
             }
             catch (Exception ex)

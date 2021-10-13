@@ -23,7 +23,7 @@ namespace WpfApp4
         public HotelsPage()
         {
             InitializeComponent();
-            DGridHotels.ItemsSource = ToursBaseEntities.GetContext().Hotel.ToList();
+            DGridHotels.ItemsSource = Tours1Entities2.GetContext().Hotels.ToList();
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -32,7 +32,7 @@ namespace WpfApp4
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
-            Manage.MainFrame.Navigate(new AddEditPage((sender as Button).DataContext as Hotel));
+            Manage.MainFrame.Navigate(new AddEditPage((sender as Button).DataContext as Hotels));
         }
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
@@ -42,14 +42,14 @@ namespace WpfApp4
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
-            var hotelsForRemoving = DGridHotels.SelectedItems.Cast<Hotel>().ToList();
+            var hotelsForRemoving = DGridHotels.SelectedItems.Cast<Hotels>().ToList();
 
             if (MessageBox.Show($"Вы точно хотите удалить следующие {hotelsForRemoving.Count()} элементов?", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 try
                 {
-                    ToursBaseEntities.GetContext().Hotel.RemoveRange(hotelsForRemoving);
-                    ToursBaseEntities.GetContext().SaveChanges();
+                    Tours1Entities2.GetContext().Hotels.RemoveRange(hotelsForRemoving);
+                    Tours1Entities2.GetContext().SaveChanges();
                     MessageBox.Show("Данные удалены");
                 }
                 catch(Exception ex)
@@ -63,8 +63,8 @@ namespace WpfApp4
         {
             if(Visibility == Visibility.Visible)
             {
-                ToursBaseEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
-                DGridHotels.ItemsSource = ToursBaseEntities.GetContext().Hotel.ToList();
+                Tours1Entities2.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+                DGridHotels.ItemsSource = Tours1Entities2.GetContext().Hotels.ToList();
             }
         }
     }

@@ -12,19 +12,27 @@ namespace WpfApp4
     using System;
     using System.Collections.Generic;
     
-    public partial class Type
+    public partial class Hotels
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Type()
+        public Hotels()
         {
-            this.Tours = new HashSet<Tours>();
+            this.HotelComment = new HashSet<HotelComment>();
+            this.Hotelmage = new HashSet<Hotelmage>();
+            this.HotelOfTour = new HashSet<HotelOfTour>();
         }
     
         public int id { get; set; }
         public string Name { get; set; }
-        public string Description { get; set; }
+        public int CountOfStars { get; set; }
+        public string CountryCode { get; set; }
     
+        public virtual Country Country { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tours> Tours { get; set; }
+        public virtual ICollection<HotelComment> HotelComment { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Hotelmage> Hotelmage { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<HotelOfTour> HotelOfTour { get; set; }
     }
 }

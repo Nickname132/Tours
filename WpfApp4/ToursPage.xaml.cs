@@ -24,38 +24,37 @@ namespace WpfApp4
         {
             InitializeComponent();
 
-            var allTypes = ToursBaseEntities.GetContext().Type.ToList();
-            allTypes.Insert(0, new Type { name = "Все типа" });
+            var allTypes = Tours1Entities2.GetContext().Type.ToList();
+            allTypes.Insert(0, new Type { Name = "Все типа" });
             ComboType.ItemsSource = allTypes;
 
             CheckActual.IsChecked = true;
             ComboType.SelectedIndex = 0;
 
             UpdateTours();
-
-            //var currentTours = ToursBaseEntities.GetContext().Tour.ToList();
-            //LViewTours.ItemsSource = currentTours;
+            var currentTours = Tours1Entities2.GetContext().Tours.ToList();
+            LViewTours.ItemsSource = currentTours;
         }
 
         private void UpdateTours()
         {
-            var currentTours = ToursBaseEntities.GetContext().Tour.ToList();
+            var currentTours = Tours1Entities2.GetContext().Tours.ToList();
 
-            if(ComboType.SelectedIndex > 0)
+            if (ComboType.SelectedIndex > 0)
             {
                 currentTours = currentTours.Where(p => p.Type.Contains(ComboType.SelectedItem as Type)).ToList();
             }
             currentTours = currentTours.Where(p => p.name.ToLower().Contains(TBoxSearch.Text.ToLower())).ToList();
             if (CheckActual.IsChecked.Value)
             {
-                currentTours = currentTours.Where(p => p.isActual).ToList();
+                currentTours = currentTours.Where(p => p.IsActual).ToList();
             }
             LViewTours.ItemsSource = currentTours.OrderBy(p => p.ticketCount).ToList();
 
         }
         private void TBoxSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
-            UpdateTours();
+          UpdateTours();
         }
 
         private void ComboType_SelectionChanged(object sender, SelectionChangedEventArgs e)
